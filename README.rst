@@ -11,6 +11,7 @@ Features
 --------
 - currently supports four services: Facebook, Google+, Twitter and LinkedIn
 - toggle each button individually via admin interface
+- set button order using weight
 - buttons are displayed *after* a question's response buttons.  See below to change this.
 
 ------------
