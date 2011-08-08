@@ -22,10 +22,11 @@
 				#qa-share-buttons {
 					vertical-align: middle;
 				}
-				#qa-share-buttons iframe {
+				#qa-share-buttons iframe,#qa-share-buttons > span {
 					margin-left:5px;
 				}
-				#qa-share-buttons iframe:first-child {
+				#qa-share-buttons > :first-child {
+				{
 					margin-left:0px;
 				}
 			</style>');
