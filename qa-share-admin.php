@@ -69,6 +69,7 @@
 			$fields[] = array(
 				'label' => 'Weight:',
 				'type' => 'static',
+				'note' => '<em>smaller values will come before larger values in the DOM</em>',
 			);
 			
 			$fields[] = array(
