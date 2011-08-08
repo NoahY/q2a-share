@@ -11,15 +11,15 @@
 			switch($option) {
 				case 'share_plugin_suggest_text':
 					return 'Looking for an answer?&nbsp; Share this question: #.';
-				case 'share_plugin_facebook':
+				case 'share_plugin_facebook_weight':
 					return 1;
-				case 'share_plugin_twitter':
+				case 'share_plugin_twitter_weight':
 					return 2;
-				case 'share_plugin_google':
+				case 'share_plugin_google_weight':
 					return 3;
-				case 'share_plugin_linkedin':
+				case 'share_plugin_linkedin_weight':
 					return 4;
-				case 'share_plugin_email':
+				case 'share_plugin_email_weight':
 					return 5;
 				default:
 					return false;
