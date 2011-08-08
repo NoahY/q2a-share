@@ -29,7 +29,7 @@
 			
 			$this->output('
 			<style>
-				#qa-share-buttons > span, #qa-share-buttons > a, #qa-share-buttons > div, #qa-share-buttons > iframe {
+				#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
 				  vertical-align: middle !important;
 				}
 			</style>');
