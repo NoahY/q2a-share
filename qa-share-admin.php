@@ -39,62 +39,56 @@
 			$fields = array();
 
 			$fields[] = array(
-				'label' => 'Show Facebook Button',
+				'label' => 'Show Facebook button',
 				'tags' => 'NAME="share_plugin_facebook"',
 				'value' => qa_opt('share_plugin_facebook'),
 				'type' => 'checkbox',
 			);
 			
 			$fields[] = array(
-				'label' => 'Show Twitter Button',
+				'label' => 'Show Twitter button',
 				'tags' => 'NAME="share_plugin_twitter"',
 				'value' => qa_opt('share_plugin_twitter'),
 				'type' => 'checkbox',
 			);
 
 			$fields[] = array(
-				'label' => 'Show Google+ Button',
+				'label' => 'Show Google+ button',
 				'tags' => 'NAME="share_plugin_google"',
 				'value' => qa_opt('share_plugin_google'),
 				'type' => 'checkbox',
 			);
 						
 			$fields[] = array(
-				'label' => 'Show LinkedIn Button',
+				'label' => 'Show LinkedIn button',
 				'tags' => 'NAME="share_plugin_linkedin"',
 				'value' => qa_opt('share_plugin_linkedin'),
 				'type' => 'checkbox',
 			);
-
-			$fields[] = array(
-				'label' => 'Weight:',
-				'type' => 'static',
-				'note' => '<em>smaller values will come before larger values in the DOM</em>',
-			);
 			
 			$fields[] = array(
-				'label' => 'Facebook button weight',
+				'label' => 'Facebook button weight:',
 				'tags' => 'NAME="share_plugin_facebook_weight" title="smaller values come before larger values in the DOM"',
 				'value' => qa_opt('share_plugin_facebook_weight'),
 				'type' => 'number',
 			);
 			
 			$fields[] = array(
-				'label' => 'Twitter button weight',
+				'label' => 'Twitter button weight:',
 				'tags' => 'NAME="share_plugin_twitter_weight" title="smaller values come before larger values in the DOM"',
 				'value' => qa_opt('share_plugin_twitter_weight'),
 				'type' => 'number',
 			);
 
 			$fields[] = array(
-				'label' => 'Google+ button weight',
+				'label' => 'Google+ button weight:',
 				'tags' => 'NAME="share_plugin_google_weight" title="smaller values come before larger values in the DOM"',
 				'value' => qa_opt('share_plugin_google_weight'),
 				'type' => 'number',
 			);
 						
 			$fields[] = array(
-				'label' => 'LinkedIn button weight',
+				'label' => 'LinkedIn button weight:',
 				'tags' => 'NAME="share_plugin_linkedin_weight" title="smaller values come before larger values in the DOM"',
 				'value' => qa_opt('share_plugin_linkedin_weight'),
 				'type' => 'number',
