@@ -17,12 +17,6 @@
 			
 		}
 
-		function q_view_buttons($q_view)
-		{
-			if (!empty($q_view['form'])) {
-				$this->form($q_view['form']);
-			}
-		}		
 		function q_view_buttons($q_view) {
 			$this->output('<DIV CLASS="qa-q-view-buttons">');
 			if (!empty($q_view['form'])) {
