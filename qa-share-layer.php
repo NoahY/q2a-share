@@ -29,18 +29,28 @@
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>'
 			);
 
+			// sort by weight
+
 			$weight = array(
 				'facebook' => qa_opt('share_plugin_facebook_weight'),
 				'twitter' => qa_opt('share_plugin_twitter_weight'),
 				'google' => qa_opt('share_plugin_google_weight'),
 				'linkedin' => qa_opt('share_plugin_linkedin_weight')
 			);
-						
+			
+			asort($weight);
+			
+			// output
+			
 			$output = '<span id="qa-share-buttons">';
 
-			$this->output_raw($output);
+			foreach ($weight as $key=>$val) {
+				$output .= $code[$key];
+			}
+
+			$this->output_raw($output.'</span>');
 			
-			$this->output('</span></DIV>');
+			$this->output('</DIV>');
 		}
 	}
 	
