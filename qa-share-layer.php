@@ -66,6 +66,8 @@
 
 				$text = preg_replace('/@([^@]+)@/','<a href="mailto:?subject='.'['.qa_opt('site_title').'] '.$q_view['raw']['title'].'&body='.qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url')).'">$1</a>',$text);
 				
+				$this->output_raw($text);
+				
 				$this->output('</h2>');
 			}
 		}
