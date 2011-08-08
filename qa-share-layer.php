@@ -7,6 +7,16 @@
 		function option_default($option) {
 
 			switch($option) {
+				case 'share_plugin_suggest_text':
+					return 'Looking for an answer?&nbsp; Share this question via # or @email@.';
+				case 'share_plugin_facebook':
+					return 1;
+				case 'share_plugin_twitter':
+					return 2;
+				case 'share_plugin_google':
+					return 3;
+				case 'share_plugin_linkedin':
+					return 4;
 				default:
 					return false;
 			}
@@ -33,9 +43,31 @@
 				$this->form($q_view['form']);
 			}
 			
-			$this->qa_share_buttons($q_view);
+			// get buttons
+			
+			$buttons = $this->qa_share_buttons($q_view);
+			
+			// show inline if answers or text suggest is off
+			
+			if(!empty($a_list) || !qa_opt('share_plugin_suggest')) {
+				$this->output_raw($buttons);
+			}			
 			
 			$this->output('</DIV>');
+
+			// show text if no answers.
+
+			if(empty($a_list) && qa_opt('share_plugin_suggest')) {
+				$this->output('<h2>');
+				
+				$text = qa_opt('share_plugin_suggest_text');
+
+				$text = str_replace('#',$buttons,$text);
+
+				$text = preg_replace('/@([^@]+)@/','<a href="mailto:?subject='.'['.qa_opt('site_title').'] '.$q_view['raw']['title'].'&body='.qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url')).'">$1</a>',$text);
+				
+				$this->output('</h2>');
+			}
 		}
 		
 		function qa_share_buttons($q_view) {
@@ -68,7 +100,7 @@
 			
 			$output = '<span id="qa-share-buttons">'.implode('&nbsp;',$shares).'</span>';
 			
-			$this->output_raw($output);		
+			return $output;		
 		}
 		
 	}
