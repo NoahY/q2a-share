@@ -49,7 +49,7 @@
 			
 			// show inline if answers or text suggest is off
 			
-			if(!empty($a_list) || !qa_opt('share_plugin_suggest')) {
+			if(!empty($this->content['a_list']) || !qa_opt('share_plugin_suggest')) {
 				$this->output_raw($buttons);
 			}			
 			
