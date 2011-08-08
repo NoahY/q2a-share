@@ -37,7 +37,7 @@
 </script>';
 			}
 			if((bool)qa_opt('share_plugin_linkedin')) {
-				$q_view['form']['custom-linkedin']'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>';
+				$q_view['form']['custom-linkedin'] = '<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>';
 			}
 			qa_html_theme_base::q_view_buttons($q_view);
 		}
