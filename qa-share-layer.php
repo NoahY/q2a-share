@@ -29,7 +29,7 @@
 			
 			$this->output('
 			<style>
-				#qa-share-buttons > span, #qa-share-buttons > div, #qa-share-buttons > iframe {
+				#qa-share-buttons > span, #qa-share-buttons > a, #qa-share-buttons > div, #qa-share-buttons > iframe {
 				  vertical-align: middle !important;
 				}
 			</style>');
@@ -90,7 +90,7 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<span id="share-button-email"><a href="mailto:?subject='.str_replace('&','%26','['.htmlspecialchars(qa_opt('site_title').'] '.$q_view['raw']['title'])).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a></span>'
+				'email'=>'<a title="Share this page via email" id="share-button-email" href="mailto:?subject='.str_replace('&','%26','['.htmlspecialchars(qa_opt('site_title').'] '.$q_view['raw']['title'])).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
 			);
 
 			// sort by weight
