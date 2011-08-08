@@ -10,7 +10,7 @@
 
 			switch($option) {
 				case 'share_plugin_suggest_text':
-					return 'Looking for an answer?&nbsp; Share this question via # or @email@.';
+					return 'Looking for an answer?&nbsp; Share this question: #.';
 				case 'share_plugin_facebook':
 					return 1;
 				case 'share_plugin_twitter':
@@ -19,6 +19,8 @@
 					return 3;
 				case 'share_plugin_linkedin':
 					return 4;
+				case 'share_plugin_email':
+					return 5;
 				default:
 					return false;
 			}
@@ -36,11 +38,13 @@
 				qa_opt('share_plugin_twitter',(bool)qa_post_text('share_plugin_twitter'));
 				qa_opt('share_plugin_google',(bool)qa_post_text('share_plugin_google'));
 				qa_opt('share_plugin_linkedin',(bool)qa_post_text('share_plugin_linkedin'));
+				qa_opt('share_plugin_email',(bool)qa_post_text('share_plugin_email'));
 				
 				qa_opt('share_plugin_facebook_weight',(int)qa_post_text('share_plugin_facebook_weight'));
 				qa_opt('share_plugin_twitter_weight',(int)qa_post_text('share_plugin_twitter_weight'));
 				qa_opt('share_plugin_google_weight',(int)qa_post_text('share_plugin_google_weight'));
 				qa_opt('share_plugin_linkedin_weight',(int)qa_post_text('share_plugin_linkedin_weight'));
+				qa_opt('share_plugin_email_weight',(int)qa_post_text('share_plugin_email_weight'));
 				
 				qa_opt('share_plugin_suggest',(int)qa_post_text('share_plugin_suggest'));
 				qa_opt('share_plugin_suggest_text',qa_post_text('share_plugin_suggest_text'));
@@ -81,6 +85,14 @@
 				'type' => 'checkbox',
 			);
 			
+						
+			$fields[] = array(
+				'label' => 'Show email button',
+				'tags' => 'NAME="share_plugin_email"',
+				'value' => qa_opt('share_plugin_email'),
+				'type' => 'checkbox',
+			);
+			
 			$fields[] = array(
 				'type' => 'blank',
 			);
@@ -112,6 +124,13 @@
 				'value' => qa_opt('share_plugin_linkedin_weight'),
 				'type' => 'number',
 			);
+						
+			$fields[] = array(
+				'label' => 'Email button weight:',
+				'tags' => 'NAME="share_plugin_email_weight" title="smaller values come before larger values in the DOM"',
+				'value' => qa_opt('share_plugin_email_weight'),
+				'type' => 'number',
+			);
 
 			$fields[] = array(
 				'type' => 'blank',
@@ -128,9 +147,13 @@
 				'tags' => 'NAME="share_plugin_suggest_text"',
 				'value' => qa_opt('share_plugin_suggest_text'),
 				'type' => 'text',
-				'note' => '(use <b>#</b> to specify button location, <b>@text@</b> to specify email link location and text)',
+				'note' => '(use <b>#</b> to specify button location)',
 			);						
-			
+
+			$fields[] = array(
+				'type' => 'blank',
+			);			
+						
 			return array(
 				'ok' => ($ok && !isset($error)) ? $ok : null,
 				

@@ -82,9 +82,14 @@
 			
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
+				
 				'twitter'=>'<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>',
+				
 				'google'=>'<g:plusone size="medium" count="false"></g:plusone><script type="text/javascript">(function() { var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true; po.src = \'https://apis.google.com/js/plusone.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s); })();</script>',
+				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>'
+				
+				'email'=>'<span id="share-button-email><a href="mailto:?subject='.str_replace('&','%26','['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.qa_path_html(qa_opt('site_url').QA_PLUGIN_DIR.$qa_plugin_directory.'/mail.png"/></a></span>'
 			);
 
 			// sort by weight
@@ -94,6 +99,7 @@
 				'twitter' => qa_opt('share_plugin_twitter_weight'),
 				'google' => qa_opt('share_plugin_google_weight'),
 				'linkedin' => qa_opt('share_plugin_linkedin_weight')
+				'email' => qa_opt('share_plugin_email_weight')
 			);
 			
 			asort($weight);
