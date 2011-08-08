@@ -19,8 +19,8 @@
 			
 			$this->output('
 			<style>
-				#qa-share-buttons {
-					vertical-align: middle;
+				#qa-share-buttons > span, #qa-share-buttons > div, #qa-share-buttons > iframe {
+				  vertical-align: middle;
 				}
 			</style>');
 		}
