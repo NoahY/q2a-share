@@ -9,10 +9,6 @@
 		function option_default($option) {
 
 			switch($option) {
-				case 'share_plugin_facebook':
-				case 'share_plugin_twitter':
-				case 'share_plugin_google':
-				case 'share_plugin_linkedin':
 				default:
 					return false;
 			}
@@ -30,13 +26,22 @@
 				qa_opt('share_plugin_twitter',(bool)qa_post_text('share_plugin_twitter'));
 				qa_opt('share_plugin_google',(bool)qa_post_text('share_plugin_google'));
 				qa_opt('share_plugin_linkedin',(bool)qa_post_text('share_plugin_linkedin'));
+				qa_opt('share_plugin_facebook_weight',(bool)qa_post_text('share_plugin_facebook_weight'));
+				qa_opt('share_plugin_twitter_weight',(bool)qa_post_text('share_plugin_twitter_weight'));
+				qa_opt('share_plugin_google_weight',(bool)qa_post_text('share_plugin_google_weight'));
+				qa_opt('share_plugin_linkedin_weight',(bool)qa_post_text('share_plugin_linkedin_weight'));
 				$ok = 'Options saved.';
 			}
 			
 		//	Create the form for display
 			
-			
+		
 			$fields = array();
+			
+			$fields[] = array(
+				'label' => 'Activiation:',
+				'type' => 'static',
+			);
 			
 			$fields[] = array(
 				'label' => 'Show Facebook Button',
@@ -64,6 +69,39 @@
 				'tags' => 'NAME="share_plugin_linkedin"',
 				'value' => qa_opt('share_plugin_linkedin'),
 				'type' => 'checkbox',
+			);
+
+			$fields[] = array(
+				'label' => 'Weight:',
+				'type' => 'static',
+			);
+			
+			$fields[] = array(
+				'label' => 'Facebook button weight',
+				'tags' => 'NAME="share_plugin_facebook_weight"',
+				'value' => qa_opt('share_plugin_facebook_weight'),
+				'type' => 'number',
+			);
+			
+			$fields[] = array(
+				'label' => 'Twitter button weight',
+				'tags' => 'NAME="share_plugin_twitter_weight"',
+				'value' => qa_opt('share_plugin_twitter_weight'),
+				'type' => 'number',
+			);
+
+			$fields[] = array(
+				'label' => 'Google+ button weight',
+				'tags' => 'NAME="share_plugin_google_weight"',
+				'value' => qa_opt('share_plugin_google_weight'),
+				'type' => 'number',
+			);
+						
+			$fields[] = array(
+				'label' => 'LinkedIn button weight',
+				'tags' => 'NAME="share_plugin_linkedin_weight"',
+				'value' => qa_opt('share_plugin_linkedin_weight'),
+				'type' => 'number',
 			);
 						
 			

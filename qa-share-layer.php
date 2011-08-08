@@ -7,10 +7,6 @@
 		function option_default($option) {
 
 			switch($option) {
-				case 'share_plugin_facebook':
-				case 'share_plugin_twitter':
-				case 'share_plugin_google':
-				case 'share_plugin_linkedin':
 				default:
 					return false;
 			}
@@ -25,31 +21,26 @@
 			
 			$url = qa_path_html(qa_q_request($this->content['raw']['postid'], $this->content['title']), null, qa_opt('site_url'));
 			
-			$output = '<div id="qa-share-buttons">';
 			
-			if((bool)qa_opt('share_plugin_facebook')) {
-				$output .= '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>';
-			}
-			if((bool)qa_opt('share_plugin_twitter')) {
-				$output .= '<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
-			}
-			if((bool)qa_opt('share_plugin_google')) {
-				$output .= '<g:plusone count="false"></g:plusone>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;
-    po.src = \'https://apis.google.com/js/plusone.js\';
-    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>';
-			}
-			if((bool)qa_opt('share_plugin_linkedin')) {
-				$output .= '<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>';
-			}
-			
+			$code = array(
+				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>',
+				'twitter'=>'<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>',
+				'google'=>'<g:plusone size="medium" count="false"></g:plusone><script type="text/javascript">(function() { var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true; po.src = \'https://apis.google.com/js/plusone.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s); })();</script>',
+				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>'
+			);
+
+			$weight = array(
+				'facebook' => qa_opt('share_plugin_facebook_weight'),
+				'twitter' => qa_opt('share_plugin_twitter_weight'),
+				'google' => qa_opt('share_plugin_google_weight'),
+				'linkedin' => qa_opt('share_plugin_linkedin_weight')
+			);
+						
+			$output = '<span id="qa-share-buttons">';
+
 			$this->output_raw($output);
 			
-			$this->output('</div></DIV>');
+			$this->output('</span></DIV>');
 		}
 	}
 	
