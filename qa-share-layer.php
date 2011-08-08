@@ -87,7 +87,7 @@
 				
 				'google'=>'<g:plusone size="medium" count="false"></g:plusone><script type="text/javascript">(function() { var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true; po.src = \'https://apis.google.com/js/plusone.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s); })();</script>',
 				
-				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>'
+				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
 				'email'=>'<span id="share-button-email><a href="mailto:?subject='.str_replace('&','%26','['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.qa_path_html(qa_opt('site_url').QA_PLUGIN_DIR.$qa_plugin_directory.'/mail.png"/></a></span>'
 			);
