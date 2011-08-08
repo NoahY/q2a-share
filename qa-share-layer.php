@@ -12,7 +12,25 @@
 			}
 			
 		}
-
+		
+		function head_css()
+		{
+			qa_html_theme_base::head_css();
+			
+			$this->output('
+			<style>
+				#qa-share-buttons {
+					vertical-align: middle;
+				}
+				#qa-share-buttons iframe {
+					margin-left:5px;
+				}
+				#qa-share-buttons iframe:first-child {
+					margin-left:0px;
+				}
+			</style>');
+		}
+		
 		function q_view_buttons($q_view) {
 			$this->output('<DIV CLASS="qa-q-view-buttons">');
 			if (!empty($q_view['form'])) {
