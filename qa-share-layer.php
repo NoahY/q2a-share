@@ -20,19 +20,27 @@
 			$this->output('
 			<style>
 				#qa-share-buttons > span, #qa-share-buttons > div, #qa-share-buttons > iframe {
-				  vertical-align: middle;
+				  vertical-align: middle !important;
 				}
 			</style>');
 		}
 		
-		function q_view_buttons($q_view) {
+		// this is an example, the share buttons may be moved elsewhere by changing this function.
+		
+		function q_view_buttons($q_view) {  
 			$this->output('<DIV CLASS="qa-q-view-buttons">');
 			if (!empty($q_view['form'])) {
 				$this->form($q_view['form']);
 			}
 			
-			$url = qa_path_html(qa_q_request($this->content['raw']['postid'], $this->content['title']), null, qa_opt('site_url'));
+			$this->qa_share_buttons();
 			
+			$this->output('</DIV>');
+		}
+		
+		function qa_share_buttons() {
+			
+			$url = qa_path_html(qa_q_request($this->content['raw']['postid'], $this->content['title']), null, qa_opt('site_url'));
 			
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
@@ -60,9 +68,8 @@
 			
 			$output = '<span id="qa-share-buttons">'.implode('&nbsp;',$shares).'</span>';
 			
-			$this->output_raw($output);
-			
-			$this->output('</DIV>');
+			$this->output_raw($output);		
 		}
+		
 	}
 	
