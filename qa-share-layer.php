@@ -33,14 +33,14 @@
 				$this->form($q_view['form']);
 			}
 			
-			$this->qa_share_buttons();
+			$this->qa_share_buttons($q_view);
 			
 			$this->output('</DIV>');
 		}
 		
-		function qa_share_buttons() {
+		function qa_share_buttons($q_view) {
 			
-			$url = qa_path_html(qa_q_request($this->content['raw']['postid'], $this->content['title']), null, qa_opt('site_url'));
+			$url = qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
 			
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
