@@ -98,7 +98,7 @@
 				'facebook' => qa_opt('share_plugin_facebook_weight'),
 				'twitter' => qa_opt('share_plugin_twitter_weight'),
 				'google' => qa_opt('share_plugin_google_weight'),
-				'linkedin' => qa_opt('share_plugin_linkedin_weight')
+				'linkedin' => qa_opt('share_plugin_linkedin_weight'),
 				'email' => qa_opt('share_plugin_email_weight')
 			);
 			
