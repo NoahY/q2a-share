@@ -10,7 +10,7 @@
 
 			switch($option) {
 				case 'share_plugin_suggest_text':
-					return 'Looking for an answer?&nbsp; Share this question: #.';
+					return 'Looking for an answer?&nbsp; Share this question: #';
 				case 'share_plugin_facebook_weight':
 					return 1;
 				case 'share_plugin_twitter_weight':
