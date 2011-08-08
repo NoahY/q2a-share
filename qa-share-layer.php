@@ -90,7 +90,7 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<a title="Share this page via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
+				'email'=>'<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
 			);
 
 			// sort by weight

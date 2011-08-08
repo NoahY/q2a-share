@@ -1,5 +1,5 @@
 ============================
-Question2Answer Share v 0.2
+Question2Answer Share v 0.3
 ============================
 -----------
 Description
@@ -9,7 +9,7 @@ This is a plugin for **Question2Answer** that provides basic social sharing func
 --------
 Features
 --------
-- currently supports four services: Facebook, Google+, Twitter and LinkedIn
+- currently supports five services: Facebook, Google+, Twitter, LinkedIn and Email
 - toggle each button individually via admin interface
 - set button order using weight
 - buttons are displayed *after* a question's response buttons - see below to change this
