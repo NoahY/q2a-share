@@ -78,7 +78,7 @@
 		
 		function qa_share_buttons($q_view) {
 			
-			$url = qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
+			$url = qa_path(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
 			$dirs = glob(QA_PLUGIN_DIR.'*/qa-share-mail.png'); 
 			$plugin_dir = '/qa-plugin/'.basename(dirname($dirs[0])); // crazy, isn't it?
 			$code = array(
@@ -90,7 +90,7 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<a title="Share this page via email" id="share-button-email" href="mailto:?subject='.str_replace('&','%26','['.htmlspecialchars(qa_opt('site_title').'] '.$q_view['raw']['title'])).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
+				'email'=>'<a title="Share this page via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
 			);
 
 			// sort by weight
