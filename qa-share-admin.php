@@ -114,13 +114,6 @@
 			);
 
 			$fields[] = array(
-				'label' => 'Show notification text while there are still no answers to a question',
-				'tags' => 'NAME="share_plugin_suggest"',
-				'value' => qa_opt('share_plugin_suggest'),
-				'type' => 'checkbox',
-			);				
-					
-			$fields[] = array(
 				'type' => 'blank',
 			);			
 			
