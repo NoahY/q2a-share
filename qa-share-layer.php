@@ -79,7 +79,8 @@
 		function qa_share_buttons($q_view) {
 			
 			$url = qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
-			$plugin_dir = basename(dirname(glob(QA_PLUGIN_DIR.'*/qa-share-mail.png'))); // crazy, isn't it?
+			$dirs = glob(QA_PLUGIN_DIR.'*/qa-share-mail.png'))); 
+			$plugin_dir = basename(dirname($dirs[0])); // crazy, isn't it?
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
 				
