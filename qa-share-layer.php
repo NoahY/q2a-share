@@ -22,13 +22,6 @@
 				#qa-share-buttons {
 					vertical-align: middle;
 				}
-				#qa-share-buttons iframe,#qa-share-buttons > span {
-					margin-left:5px;
-				}
-				#qa-share-buttons > :first-child {
-				{
-					margin-left:0px;
-				}
 			</style>');
 		}
 		
@@ -61,13 +54,13 @@
 			
 			// output
 			
-			$output = '<span id="qa-share-buttons">';
-
 			foreach ($weight as $key=>$val) {
-				$output .= $code[$key];
+				if(qa_opt('share_plugin_'.$key)) $shares[] = $code[$key];
 			}
-
-			$this->output_raw($output.'</span>');
+			
+			$output = '<span id="qa-share-buttons">'.implode('&nbsp;',$shares).'</span>';
+			
+			$this->output_raw($output);
 			
 			$this->output('</DIV>');
 		}
