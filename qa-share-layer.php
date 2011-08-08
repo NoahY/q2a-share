@@ -57,7 +57,7 @@
 
 			// show text if no answers.
 
-			if(empty($a_list) && qa_opt('share_plugin_suggest')) {
+			if(empty($this->content['a_list']) && qa_opt('share_plugin_suggest')) {
 				$this->output('<h2>');
 				
 				$text = qa_opt('share_plugin_suggest_text');
