@@ -89,7 +89,7 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<span id="share-button-email"><a href="mailto:?subject='.str_replace('&','%26','['.htmlspecialchars(qa_opt('site_title').'] '.$q_view['raw']['title'])).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="'.QA_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/mail.png'.'"/></a></span>'
+				'email'=>'<span id="share-button-email"><a href="mailto:?subject='.str_replace('&','%26','['.htmlspecialchars(qa_opt('site_title').'] '.$q_view['raw']['title'])).'&body='.str_replace('&amp;','%26',$url).'"><img height="20" src="/qa-plugin'.basename(__FILE__).'/mail.png'.'"/></a></span>'
 			);
 
 			// sort by weight
