@@ -79,8 +79,7 @@
 		function qa_share_buttons($q_view) {
 			
 			$url = qa_path(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
-			$dirs = glob(QA_PLUGIN_DIR.'*/qa-share-mail.png'); 
-			$plugin_dir = '/qa-plugin/'.basename(dirname($dirs[0])); // crazy, isn't it?
+
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
 				
@@ -90,7 +89,7 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.$plugin_dir.'/qa-share-mail.png'.'"/></a>'
+				'email'=>'<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.QA_HTML_THEME_LAYER_DIRECTORY.'/qa-share-mail.png'.'"/></a>'
 			);
 
 			// sort by weight
