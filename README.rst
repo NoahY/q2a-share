@@ -19,10 +19,9 @@ Features
 Installation
 ------------
 1. Install Question2Answer_
-2. Create a new folder in the qa-plugin directory (e.g. share)
-3. Place the files in this repository in that folder
-4. Go to **Admin -> Plugins** on your q2a install and select which buttons to show, then click **Save**
-5. To change the position of the buttons, edit qa-share-layer.php and follow standard theming practices, as outlined here_
+2. Place the files in this repository in a subfolder of the qa-plugin directory (**git clone git://github.com/NoahY/q2a-share.git share** works)
+3. Go to **Admin -> Plugins** on your q2a install and select which buttons to show, then click **Save**
+4. To change the position of the buttons, edit qa-share-layer.php and follow standard theming practices, as outlined here_
 
 .. _Question2Answer: http://www.question2answer.org/install.php
 
