@@ -1,5 +1,5 @@
 ============================
-Question2Answer Share v 0.3
+Question2Answer Share v 1.0b
 ============================
 -----------
 Description
