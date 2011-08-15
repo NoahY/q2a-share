@@ -29,6 +29,10 @@
 			
 			$this->output('
 			<style>
+				#qa-share-buttons {
+					float: right;
+					margin-right: 4px;
+				}
 				#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
 				  vertical-align: middle !important;
 				}
@@ -38,10 +42,7 @@
 		// this is an example, the share buttons may be moved elsewhere by changing this function.
 		
 		function q_view_buttons($q_view) {  
-			$this->output('<DIV CLASS="qa-q-view-buttons">');
-			if (!empty($q_view['form'])) {
-				$this->form($q_view['form']);
-			}
+			qa_html_theme_base::q_view_buttons($q_view);		
 			
 			// get buttons
 			
@@ -53,8 +54,6 @@
 				$this->output_raw($buttons);
 			}			
 			
-			$this->output('</DIV>');
-
 			// show text if no answers.
 
 			if(empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
@@ -110,7 +109,7 @@
 				if(qa_opt('share_plugin_'.$key)) $shares[] = $code[$key];
 			}
 			
-			$output = '<span id="qa-share-buttons">'.implode('&nbsp;',$shares).'</span>';
+			$output = '<div id="qa-share-buttons">'.implode('&nbsp;',$shares).'</div>';
 			
 			return $output;		
 		}
