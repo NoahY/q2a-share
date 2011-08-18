@@ -20,7 +20,7 @@
 	
 	qa_register_plugin_layer('qa-share-layer.php', 'Share Button Layer');	
 	
-	qa_register_plugin_module('module', 'qa-share-admin.php', 'qa_share_admin', 'Share Admin');
+	qa_register_plugin_module('widget', 'qa-share-admin.php', 'qa_share_admin', 'Share Admin');
 
 /*
 	Omit PHP closing tag to help avoid accidental output
