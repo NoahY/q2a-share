@@ -50,18 +50,15 @@
 			
 			// show inline if answers or text suggest is off
 			
-			if(!empty($this->content['a_list']['as']) || !qa_opt('share_plugin_suggest')) {
+			if(!empty($this->content['a_list']['as']) || !qa_opt('share_plugin_suggest') && $buttons) {
 				$this->output_raw($buttons);
 			}			
-			
-			// show text if no answers.
-
-			if(empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
+			else if(empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
 				$this->output('<h2>');
 				
 				$text = qa_opt('share_plugin_suggest_text');
 
-				$text = str_replace('#',$buttons,$text);
+				if($buttons) $text = str_replace('#',$buttons,$text);
 				
 				$subject = str_replace('&','%26','['.qa_opt('site_title').'] '.$q_view['raw']['title']);
 				
@@ -108,6 +105,7 @@
 			foreach ($weight as $key=>$val) {
 				if(qa_opt('share_plugin_'.$key)) $shares[] = $code[$key];
 			}
+			if(empty($shares)) return null;
 			
 			$output = '<div id="qa-share-buttons">'.implode('&nbsp;',$shares).'</div>';
 			
