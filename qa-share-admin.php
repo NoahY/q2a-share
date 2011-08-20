@@ -22,7 +22,7 @@
 				case 'share_plugin_email_weight':
 					return 5;
 				default:
-					return false;
+					return null;
 			}
 			
 		}
@@ -138,16 +138,17 @@
 			
 			$fields[] = array(
 				'label' => 'Show notification text while there are still no answers to a question',
-				'tags' => 'NAME="share_plugin_suggest"',
+				'tags' => 'NAME="share_plugin_suggest" onclick="if(this.checked) jQuery(\'#share_options_container\').fadeIn(); else jQuery(\'#share_options_container\').fadeOut();"',
 				'value' => qa_opt('share_plugin_suggest'),
 				'type' => 'checkbox',
+				'note' => '<table id="share_options_container" style="display:'.(qa_opt('share_plugin_suggest')?'block':'none').'"><tr><td>',
 			);		
 							
 			$fields[] = array(
 				'tags' => 'NAME="share_plugin_suggest_text"',
 				'value' => qa_opt('share_plugin_suggest_text'),
 				'type' => 'text',
-				'note' => '(use <b>#</b> to specify button location)',
+				'note' => '<i style="font-size:10px;">(use <b>#</b> to specify button location)</i></td></tr></table>',
 			);						
 
 			$fields[] = array(
