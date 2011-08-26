@@ -44,6 +44,9 @@
 		function q_view_buttons($q_view) {  
 			qa_html_theme_base::q_view_buttons($q_view);		
 			
+			
+			if($this->template != 'question') return;
+			
 			// get buttons
 			
 			$buttons = $this->qa_share_buttons($q_view);
