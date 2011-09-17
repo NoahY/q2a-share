@@ -4,7 +4,7 @@
         Plugin Name: Share
         Plugin URI: 
         Plugin Description: Adds social sharing buttons to questions
-        Plugin Version: 0.1
+        Plugin Version: 1.0b1
         Plugin Date: 2011-08-08
         Plugin Author: NoahY
         Plugin Author URI: 
