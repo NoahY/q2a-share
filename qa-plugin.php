@@ -22,6 +22,8 @@
 	
 	qa_register_plugin_module('module', 'qa-share-admin.php', 'qa_share_admin', 'Share Admin');
 
+	qa_register_plugin_module('widget', 'qa-share-widget.php', 'qa_share_widget', 'Share Widget');
+
 /*
 	Omit PHP closing tag to help avoid accidental output
 */

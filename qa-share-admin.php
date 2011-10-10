@@ -46,6 +46,8 @@
 				qa_opt('share_plugin_linkedin_weight',(int)qa_post_text('share_plugin_linkedin_weight'));
 				qa_opt('share_plugin_email_weight',(int)qa_post_text('share_plugin_email_weight'));
 				
+				qa_opt('share_plugin_widget_only',(bool)qa_post_text('share_plugin_widget_only'));
+				
 				qa_opt('share_plugin_suggest',(int)qa_post_text('share_plugin_suggest'));
 				qa_opt('share_plugin_suggest_text',qa_post_text('share_plugin_suggest_text'));
 				
@@ -130,6 +132,18 @@
 				'tags' => 'NAME="share_plugin_email_weight" title="smaller values come before larger values in the DOM"',
 				'value' => qa_opt('share_plugin_email_weight'),
 				'type' => 'number',
+			);
+
+			$fields[] = array(
+				'type' => 'blank',
+			);			
+						
+			$fields[] = array(
+				'label' => 'Widget only',
+				'tags' => 'NAME="share_plugin_widget_only"',
+				'value' => qa_opt('share_plugin_widget_only'),
+				'type' => 'checkbox',
+				'note' => 'disables inline buttons - widget must be enabled via admin/layout',
 			);
 
 			$fields[] = array(

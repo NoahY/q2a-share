@@ -36,6 +36,14 @@
 				#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
 				  vertical-align: middle !important;
 				}
+				.share-widget-container {
+					display:inline-block;
+					poisiton:relative;
+				}
+				.qa-share-button {
+					width: 54px;
+					vertical-align: middle !important;
+				}				
 			</style>');
 		}
 		
@@ -43,6 +51,8 @@
 		
 		function q_view_buttons($q_view) {  
 			qa_html_theme_base::q_view_buttons($q_view);		
+			
+			if(qa_opt('share_plugin_widget_only')) return;
 			
 			
 			if($this->template != 'question') return;
@@ -69,6 +79,24 @@
 			}
 		}
 		
+		function finish() {
+			qa_html_theme_base::finish();
+			$this->output('<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, "script", "facebook-jssdk"));
+
+</script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+<script type="text/javascript">(function() {var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();</script>');
+			
+		}
+		
+		
 		function qa_share_buttons($q_view) {
 			
 			$url = qa_path(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
@@ -76,13 +104,13 @@
 			$code = array(
 				'facebook'=> '<iframe src="http://www.facebook.com/plugins/like.php?app_id=143472095738441&amp;href='.$url.'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>',
 				
-				'twitter'=>'<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>',
+				'twitter'=>'<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>',
 				
-				'google'=>'<g:plusone size="medium" count="false"></g:plusone><script type="text/javascript">(function() { var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true; po.src = \'https://apis.google.com/js/plusone.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s); })();</script>',
+				'google'=>'<g:plusone size="medium" count="false"></g:plusone>',
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email'=>'<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="20" src="'.QA_HTML_THEME_LAYER_URLTOROOT.'qa-share-mail.png'.'"/></a>'
+				'email'=>'<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$q_view['raw']['title']).'&body='.rawurlencode($url).'"><img height="24" src="'.QA_HTML_THEME_LAYER_URLTOROOT.'qa-share-mail.png'.'"/></a>'
 			);
 
 			// sort by weight
