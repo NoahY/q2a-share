@@ -79,8 +79,8 @@
 			}
 		}
 		
-		function finish() {
-			qa_html_theme_base::finish();
+		function footer() {
+			qa_html_theme_base::footer();
 			$this->output('<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
