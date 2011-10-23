@@ -23,28 +23,14 @@
 			
 		}
 		
-		function head_css()
+		function head_custom()
 		{
-			qa_html_theme_base::head_css();
+			qa_html_theme_base::head_custom();
 			
 			$this->output('
-			<style>
-				#qa-share-buttons {
-					float: right;
-					margin-right: 4px;
-				}
-				#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
-				  vertical-align: middle !important;
-				}
-				.share-widget-container {
-					display:inline-block;
-					poisiton:relative;
-				}
-				.qa-share-button {
-					width: 54px;
-					vertical-align: middle !important;
-				}				
-			</style>');
+<style>
+'.qa_opt('share_plugin_css').'				
+</style>');
 		}
 		
 		// this is an example, the share buttons may be moved elsewhere by changing this function.
@@ -67,7 +53,7 @@
 				$this->output('<div id="qa-share-buttons">',$buttons,'</div>');
 			}			
 			else if(empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
-				$this->output('<h2>');
+				$this->output('<div id="qa-share-buttons-container">');
 				
 				$text = qa_opt('share_plugin_suggest_text');
 
@@ -75,7 +61,7 @@
 				
 				$this->output_raw($text);
 				
-				$this->output('</h2>');
+				$this->output('</div>');
 			}
 		}
 		

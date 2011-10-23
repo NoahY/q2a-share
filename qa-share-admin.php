@@ -11,6 +11,30 @@
 			switch($option) {
 				case 'share_plugin_suggest_text':
 					return 'Looking for an answer?&nbsp; Share this question: #';
+				case 'share_plugin_css':
+					return '#qa-share-buttons-container {
+	background: none repeat scroll 0 0 #DDDDDD;
+	font-size: 125%;
+	font-weight: bold;
+	margin: 20px 0;
+	padding: 20px;
+	text-align: center;
+	width: 100%;
+}
+#qa-share-buttons {
+	margin-left: 6px;
+}
+#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
+  vertical-align: middle !important;
+}
+.share-widget-container {
+	display:inline-block;
+	poisiton:relative;
+}
+.qa-share-button {
+	width: 54px;
+	vertical-align: middle !important;
+}';
 				case 'share_plugin_facebook_weight':
 					return 1;
 				case 'share_plugin_twitter_weight':
@@ -46,14 +70,21 @@
 				qa_opt('share_plugin_linkedin_weight',(int)qa_post_text('share_plugin_linkedin_weight'));
 				qa_opt('share_plugin_email_weight',(int)qa_post_text('share_plugin_email_weight'));
 				
+				qa_opt('share_plugin_css',qa_post_text('share_plugin_css'));
 				qa_opt('share_plugin_widget_only',(bool)qa_post_text('share_plugin_widget_only'));
 				
 				qa_opt('share_plugin_suggest',(int)qa_post_text('share_plugin_suggest'));
 				qa_opt('share_plugin_suggest_text',qa_post_text('share_plugin_suggest_text'));
 				
-				$ok = 'Options saved.';
+				$ok = qa_lang('admin/options_saved');
 			}
-			
+			else if (qa_clicked('share_reset_button')) {
+				foreach($_POST as $i => $v) {
+					$def = $this->option_default($i);
+					if($def !== null) qa_opt($i,$def);
+				}
+				$ok = qa_lang('admin/options_reset');
+			}			
 		//	Create the form for display
 			
 		
@@ -137,7 +168,15 @@
 			$fields[] = array(
 				'type' => 'blank',
 			);			
-						
+			
+			$fields[] = array(
+				'label' => 'Share buttons custom css',
+				'tags' => 'NAME="share_plugin_css"',
+				'value' => qa_opt('share_plugin_css'),
+				'type' => 'textarea',
+				'rows' => 20
+			);
+									
 			$fields[] = array(
 				'label' => 'Widget only',
 				'tags' => 'NAME="share_plugin_widget_only"',
@@ -176,8 +215,12 @@
 				
 				'buttons' => array(
 					array(
-						'label' => 'Save',
-						'tags' => 'NAME="share_save_button"',
+					'label' => qa_lang_html('main/save_button'),
+					'tags' => 'NAME="share_save_button"',
+					),
+					array(
+					'label' => qa_lang_html('admin/reset_options_button'),
+					'tags' => 'NAME="share_reset_button"',
 					),
 				),
 			);
