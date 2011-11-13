@@ -19,7 +19,6 @@
 	margin: 20px 0;
 	padding: 20px;
 	text-align: center;
-	width: 100%;
 }
 #qa-share-buttons {
 	margin-left: 6px;
