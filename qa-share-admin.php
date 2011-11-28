@@ -19,12 +19,10 @@
 	margin: 20px 0;
 	padding: 20px;
 	text-align: center;
+
 }
 #qa-share-buttons {
-	margin-left: 6px;
-}
-#qa-share-buttons > span, #qa-share-buttons img, #qa-share-buttons > div, #qa-share-buttons > iframe {
-  vertical-align: middle !important;
+	vertical-align:middle;
 }
 .share-widget-container {
 	display:inline-block;
@@ -32,7 +30,7 @@
 }
 .qa-share-button {
 	width: 54px;
-	vertical-align: middle !important;
+
 }';
 				case 'share_plugin_facebook_weight':
 					return 1;
