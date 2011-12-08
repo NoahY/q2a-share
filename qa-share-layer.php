@@ -62,6 +62,17 @@
 		
 		
 		function qa_share_buttons($q_view) {
+			if(qa_opt('expert_question_enable')) {
+				$qid = $q_view['raw']['postid'];
+				$expert = qa_db_read_one_value(
+					qa_db_query_sub(
+						"SELECT meta_value FROM ^postmeta WHERE meta_key='is_expert_question' AND post_id=#",
+						$qid
+					), true
+				);
+				if($expert)
+					return;
+			}
 			
 			$url = qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
 
