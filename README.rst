@@ -14,6 +14,7 @@ Features
 - set button order using weight
 - buttons are displayed *after* a question's response buttons - see below to change this
 - option to include suggestion text when there is no answer
+- optional share widget for sidebar
 
 ------------
 Installation
