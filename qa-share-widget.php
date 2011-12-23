@@ -26,8 +26,6 @@
 				
 				'linkedin'=>'<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share"></script>',
 				
-				'email' => '<a title="Share this question via email" id="share-button-email" href="mailto:?subject='.rawurlencode('['.qa_opt('site_title').'] '.$qa_content['q_view']['raw']['title']).'&body='.rawurlencode($url).'"><img height="24" src="'.QA_HTML_THEME_LAYER_URLTOROOT.'qa-share-mail.png'.'"/></a>'
-
 			);
 
 			// sort by weight
@@ -37,7 +35,6 @@
 				'twitter' => qa_opt('share_plugin_twitter_weight'),
 				'google' => qa_opt('share_plugin_google_weight'),
 				'linkedin' => qa_opt('share_plugin_linkedin_weight'),
-				'email' => qa_opt('share_plugin_email_weight')
 			);
 			
 			asort($weight);
