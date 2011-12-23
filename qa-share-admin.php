@@ -9,6 +9,8 @@
 		function option_default($option) {
 
 			switch($option) {
+				case 'share_plugin_widget_title':
+					return 'Share this question';
 				case 'share_plugin_suggest_text':
 					return 'Looking for an answer?&nbsp; Share this question: #';
 				case 'share_plugin_css':
@@ -69,6 +71,7 @@
 				
 				qa_opt('share_plugin_css',qa_post_text('share_plugin_css'));
 				qa_opt('share_plugin_widget_only',(bool)qa_post_text('share_plugin_widget_only'));
+				qa_opt('share_plugin_widget_title',qa_post_text('share_plugin_widget_title'));
 				
 				qa_opt('share_plugin_suggest',(int)qa_post_text('share_plugin_suggest'));
 				qa_opt('share_plugin_suggest_text',qa_post_text('share_plugin_suggest_text'));
@@ -180,6 +183,11 @@
 				'value' => qa_opt('share_plugin_widget_only'),
 				'type' => 'checkbox',
 				'note' => 'disables inline buttons - widget must be enabled via admin/layout',
+			);
+			$fields[] = array(
+				'label' => 'Widget Title',
+				'tags' => 'NAME="share_plugin_widget_title"',
+				'value' => qa_opt('share_plugin_widget_title'),
 			);
 
 			$fields[] = array(
