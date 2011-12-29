@@ -31,12 +31,12 @@
 			if(!empty($this->content['a_list']['as']) || !qa_opt('share_plugin_suggest') && $buttons) {
 				$this->output('<div id="qa-share-buttons">',$buttons,'</div>');
 			}			
-			else if(empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
+			else if($buttons && empty($this->content['a_list']['as']) && qa_opt('share_plugin_suggest')) {
 				$this->output('<div id="qa-share-buttons-container">');
 				
 				$text = qa_opt('share_plugin_suggest_text');
 
-				if($buttons) $text = str_replace('#','<span id="qa-share-buttons">'.$buttons.'</span>',$text);
+				$text = str_replace('#','<span id="qa-share-buttons">'.$buttons.'</span>',$text);
 				
 				$this->output_raw($text);
 				
