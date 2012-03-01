@@ -5,7 +5,7 @@
         Plugin URI: https://github.com/NoahY/q2a-share
         Plugin Update Check URI: https://github.com/NoahY/q2a-share/raw/master/qa-plugin.php
         Plugin Description: Adds social sharing buttons to questions
-        Plugin Version: 1.0b1
+        Plugin Version: 1.0
         Plugin Date: 2011-08-08
         Plugin Author: NoahY
         Plugin Author URI: 
