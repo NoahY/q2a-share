@@ -28,7 +28,7 @@
 }
 .share-widget-container {
 	display:inline-block;
-	poisiton:relative;
+	position:relative;
 }
 .qa-share-button {
 	width: 54px;
