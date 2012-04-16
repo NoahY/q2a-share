@@ -47,10 +47,6 @@
 		function footer() {
 			qa_html_theme_base::footer();
 			if(@$this->content['q_view']) {
-				if(qa_opt('share_plugin_facebook')) {
-					$this->output('
-		<script>document.getElementById("share-fb-like").innerHTML=\'<iframe src="http://www.facebook.com/plugins/like.php?href='.qa_path_html(qa_q_request($this->content['q_view']['raw']['postid'], $this->content['q_view']['raw']['title']), null, qa_opt('site_url')).'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;appId=170382616390886" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>\'</script>');
-				}
 				if(qa_opt('share_plugin_twitter')) {
 					$this->output('<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>');
 				}
@@ -77,7 +73,7 @@
 			$url = qa_path_html(qa_q_request($q_view['raw']['postid'], $q_view['raw']['title']), null, qa_opt('site_url'));
 
 			$code = array(
-				'facebook'=> '<span id="share-fb-like"></span>',
+				'facebook'=> '<iframe src="//www.facebook.com/plugins/like.php?href='.qa_path_html(qa_q_request($this->content['q_view']['raw']['postid'], $this->content['q_view']['raw']['title']), null, qa_opt('site_url')).'&amp;send=false&amp;layout=standard&amp;width=49&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;appId=170382616390886" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:49px; height:20px;" allowTransparency="true"></iframe>',
 				
 				'twitter'=>'<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>',
 				
